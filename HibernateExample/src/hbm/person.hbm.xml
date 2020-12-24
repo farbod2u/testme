@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.saeed.entities.Person" table="person" dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="int" column="pkId">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" type="string" column="name" not-null="true" length="200"  />
+		<property name="email" type="string" column="emaila" not-null="true" length="200" />
+		
+		<component name="job" class="com.saeed.entities.Job">
+			<parent name="person"/>
+			<property name="designation" column="designation" type="string" />
+			<property name="salary" column="salary" type="double" />
+			<property name="jobDescription" column="jobDescription" type="string" />
+		</component>
+	</class>
+</hibernate-mapping>
