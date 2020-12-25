@@ -5,9 +5,11 @@
 	<groupId>ir.learn.hibernate</groupId>
 	<artifactId>hibernate.xml.one</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>hibernate.xml</name>
+	<description>hibernate by xml hbm file</description>
 
 	<dependencies>
-	
+
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
