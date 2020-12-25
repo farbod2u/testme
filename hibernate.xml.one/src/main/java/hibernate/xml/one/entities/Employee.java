@@ -1,5 +1,6 @@
 package hibernate.xml.one.entities;
 
+// by saeed saf
 public class Employee {
 	private long id;
 	private String firstName;
