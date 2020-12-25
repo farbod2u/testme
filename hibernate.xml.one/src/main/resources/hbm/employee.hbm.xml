@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="hibernate.xml.one.entities.Employee" table="employee" dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long" column="pkId">
+			<generator class="native"></generator>
+		</id>
+		<property name="firstName" type="string" column="FirstName" not-null="true" length="200"  />
+		<property name="lastName" type="string" column="LastName" not-null="true" length="250" />
+	</class>
+</hibernate-mapping>

@@ -10,12 +10,5 @@
 		</id>
 		<property name="name" type="string" column="name" not-null="true" length="200"  />
 		<property name="email" type="string" column="emaila" not-null="true" length="200" />
-		
-		<component name="job" class="com.saeed.entities.Job">
-			<parent name="person"/>
-			<property name="designation" column="designation" type="string" />
-			<property name="salary" column="salary" type="double" />
-			<property name="jobDescription" column="jobDescription" type="string" />
-		</component>
 	</class>
 </hibernate-mapping>
