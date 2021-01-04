@@ -2,7 +2,7 @@ package saeed.hibernate.entities;
 
 import java.io.Serializable;
 
-public class Cource implements Serializable {
+public class Course implements Serializable {
 
 	/**
 	 * 
