@@ -38,7 +38,7 @@ public class Mark implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "f_stident_id")
+	@JoinColumn(name = "f_studentId")
 	private Student student;
 
 	public Student getStudent() {
