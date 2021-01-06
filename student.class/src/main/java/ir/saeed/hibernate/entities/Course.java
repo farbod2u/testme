@@ -1,4 +1,4 @@
-package saeed.hibernate.entities;
+package ir.saeed.hibernate.entities;
 
 import java.io.Serializable;
 
