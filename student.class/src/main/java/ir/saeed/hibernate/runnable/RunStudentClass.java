@@ -26,40 +26,8 @@ public class RunStudentClass {
 
 		Transaction trans = session.beginTransaction();
 		try {
-//**************  insert into one-to-one	***************	
-//			Person person = new Person();
-//			person.setFirstName("Saeed");
-//			person.setLastName("Safaeian");
-//			person.setBirthDate(new GregorianCalendar(1978, 8, 11).getTime());
-//			session.save(person);	
-//			Student student = new Student();
-//			student.setStudentNumber("3333");
-//			student.setEntranceYear((short) 234);
-//			student.setPerson(person);
-//			person.setStudent(student);
-//			session.saveOrUpdate(person);
-//***************   read from one-to-one	****************	
-//			Person person = session.load(Person.class, 1);
-//			System.out.println(person.getStudent().getStudentNumber());
-			
-			
-
-//			Student student = session.load(Student.class, 1); //new Student();
-//			student.getMarks().forEach(new Consumer<Mark>() {
-//
-//				public void accept(Mark t) {
-//					System.out.println(t.getValue());
-//					
-//				}
-//			});
-
-			// student.setAge(23f);
-			// Mark mark = new Mark();
-			// mark.setValue(12f);
-			// mark.setStudent(student);
-			// student.getMarks().add(mark);
-			// session.save(student);
-			// session.save(mark);
+//			one_to_one(session);
+//			one_to_many(session);
 
 			trans.commit();
 		} catch (Exception e) {
@@ -69,6 +37,56 @@ public class RunStudentClass {
 
 		session.close();
 		sessionFactory.close();
+	}
+
+	private static void one_to_many(Session session) {
+		// *************** insert into one-to-many ****************
+		Student student = session.load(Student.class, 1);
+		
+		Mark mark = new Mark();
+		mark.setValue(12f);
+		mark.setStudent(student);
+		student.getMarks().add(mark);
+		
+		mark = new Mark();
+		mark.setValue(20f);
+		mark.setStudent(student);
+		student.getMarks().add(mark);
+		
+		session.saveOrUpdate(student);
+
+
+		// *************** read from one-to-many ****************
+		Student student2 = session.load(Student.class, 1);
+		System.out.println(student2.getFullName());
+		student2.getMarks().forEach(new Consumer<Mark>() {
+
+			public void accept(Mark t) {
+				System.out.println(t.getValue());
+
+			}
+		});
+	}
+
+	private static void one_to_one(Session session) {
+		// ************** insert into one-to-one ***************
+		Person person = new Person();
+		person.setFirstName("Ali");
+		person.setLastName("Safaeian");
+		person.setBirthDate(new GregorianCalendar(1978, 8, 11).getTime());
+		session.save(person);
+
+		Student student = new Student();
+		student.setStudentNumber("456");
+		student.setEntranceYear((short) 1380);
+		student.setPerson(person);
+
+		person.setStudent(student);
+		session.saveOrUpdate(person);
+
+		// *************** read from one-to-one ****************
+		Person person2 = session.load(Person.class, 1);
+		System.out.println(person2.getStudent().getStudentNumber());
 	}
 
 }

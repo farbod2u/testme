@@ -31,7 +31,7 @@ public class Student implements Serializable {
 
 	@OneToOne(mappedBy = "student")
 //	@JoinColumn(name = "f_personId")
-	//@PrimaryKeyJoinColumn
+	// @PrimaryKeyJoinColumn
 	private Person person;
 
 	public String getStudentNumber() {
@@ -75,6 +75,13 @@ public class Student implements Serializable {
 
 	public void setPersonId(Integer personId) {
 		this.personId = personId;
+	}
+
+	public String getFullName() {
+		if (this.person != null)
+			return this.person.getFirstName() + " " + this.person.getLastName();
+		else
+			return "";
 	}
 
 }
