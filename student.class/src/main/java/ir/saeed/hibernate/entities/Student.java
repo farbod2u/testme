@@ -5,6 +5,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 @Entity
 @Table(name = "t_student")
 public class Student implements Serializable {
@@ -15,38 +18,44 @@ public class Student implements Serializable {
 	private static final long serialVersionUID = 8726422285681460382L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "f_id", unique = true, nullable = false)
-	private Integer id;
+	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "person"))
+	@GeneratedValue(generator = "generator")
+	@Column(name = "f_personId", unique = true, nullable = false)
+	private Integer personId;
 
-	@Column(name = "f_name", length = 150, nullable = false)
-	private String name;
+	@Column(name = "f_studentNumber", length = 20, nullable = false)
+	private String studentNumber;
 
-	@Column(name = "f_age")
-	private Float age;
+	@Column(name = "f_entranceYear")
+	private Short entranceYear;
 
-	public Integer getId() {
-		return id;
+	@OneToOne(mappedBy = "student")
+//	@JoinColumn(name = "f_personId")
+	//@PrimaryKeyJoinColumn
+	private Person person;
+
+	public String getStudentNumber() {
+		return studentNumber;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setStudentNumber(String studentNumber) {
+		this.studentNumber = studentNumber;
 	}
 
-	public String getName() {
-		return name;
+	public Short getEntranceYear() {
+		return entranceYear;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setEntranceYear(Short entranceYear) {
+		this.entranceYear = entranceYear;
 	}
 
-	public Float getAge() {
-		return age;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setAge(Float age) {
-		this.age = age;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 	@OneToMany(targetEntity = Mark.class, mappedBy = "student", cascade = CascadeType.ALL)
@@ -58,6 +67,14 @@ public class Student implements Serializable {
 
 	public void setMarks(Set<Mark> marks) {
 		this.marks = marks;
+	}
+
+	public Integer getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(Integer personId) {
+		this.personId = personId;
 	}
 
 }

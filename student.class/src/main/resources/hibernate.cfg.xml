@@ -13,6 +13,7 @@
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		
+		<mapping class="ir.saeed.hibernate.entities.Person" />
 		<mapping class="ir.saeed.hibernate.entities.Student" />
 		<mapping class="ir.saeed.hibernate.entities.Mark" />
 	</session-factory>

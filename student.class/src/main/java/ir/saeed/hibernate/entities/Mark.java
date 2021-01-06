@@ -15,7 +15,7 @@ public class Mark implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "f_id")
+	@Column(name = "f_id", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "f_value")
