@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title></title>
+<title>Insert title here</title>
 </head>
 <body>
-	<a href="hello">Click here...</a> || <a href="hello2">Hello 2</a>
+	<a href=".">Return to index</a>
 </body>
 </html>
