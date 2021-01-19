@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 @Entity
 @Table(name = "t_address")
 public class Address implements Serializable {
@@ -14,9 +17,10 @@ public class Address implements Serializable {
 	private static final long serialVersionUID = -2594878157192936299L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "f_id", nullable = false, unique = true)
-	private Integer id;
+	@GenericGenerator(name = "myGenerator", strategy = "foreign", parameters = @Parameter(name = "property", value = "person"))
+	@GeneratedValue(generator = "myGenerator")
+	@Column(name = "f_personId", nullable = false, unique = true)
+	private Integer personId;
 
 	@Column(name = "f_city", nullable = false)
 	private String city;
@@ -24,7 +28,7 @@ public class Address implements Serializable {
 	@Column(name = "f_province", nullable = false)
 	private String province;
 
-	@OneToOne
+	@OneToOne(mappedBy = "address")
 	private Person person;
 
 	public Person getPerson() {
@@ -42,12 +46,12 @@ public class Address implements Serializable {
 		return res;
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getPersonId() {
+		return personId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setPersonId(Integer personId) {
+		this.personId = personId;
 	}
 
 	public String getCity() {

@@ -23,15 +23,19 @@ public class RunSpring {
 		// Student.class));
 
 		PersonService personService = applicationContext.getBean(PersonService.class);
-		Person person = personService.read(1);
-
-		AddressService addressService = applicationContext.getBean("addressService", AddressService.class);
+		Person person = new Person();
+		person.setFirstName("Saeed");
+		person.setLastName("Safaeian");
+		personService.create(person);
+		
+		AddressService addressService = applicationContext.getBean(AddressService.class);
 		Address address = new Address();
-		address.setCity("ww");
-		address.setProvince("33");
+		address.setCity("Tehran");
+		address.setProvince("Tehran");
 		address.setPerson(person);
-		person.setAddress(address);
+		//person.setAddress(address);
 		addressService.create(address);
+		
 	}
 
 }

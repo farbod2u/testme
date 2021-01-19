@@ -24,7 +24,7 @@ public class Person implements Serializable {
 	@Column(name = "f_last_name")
 	private String lastName;
 	
-	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@PrimaryKeyJoinColumn
 	private Address address;
 
