@@ -1,4 +1,4 @@
-package saeed.hibernate.entities;
+package ir.saeed.hibernate.entities;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ public class Mark implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "f_id")
+	@Column(name = "f_id", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "f_value")
@@ -38,7 +38,7 @@ public class Mark implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "f_stident_id")
+	@JoinColumn(name = "f_studentId")
 	private Student student;
 
 	public Student getStudent() {
