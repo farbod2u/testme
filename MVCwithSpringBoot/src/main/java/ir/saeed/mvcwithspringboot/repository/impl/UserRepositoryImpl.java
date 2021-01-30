@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,11 +18,16 @@ public class UserRepositoryImpl implements UserRepository {
 	@Autowired
 	private EntityManagerFactory emFactory;
 
+	private Session session;
+
 	private Session getSession() {
-		if (emFactory.unwrap(SessionFactory.class) == null) {
+		if (emFactory.unwrap(SessionFactory.class) == null)
 			throw new NullPointerException("factory is not a hibernate factory");
-		}
-		return emFactory.unwrap(SessionFactory.class).openSession();
+
+		if (session == null)
+			session = emFactory.unwrap(SessionFactory.class).openSession();
+
+		return session;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -34,6 +40,7 @@ public class UserRepositoryImpl implements UserRepository {
 	@Override
 	public void save(User entity) {
 		this.getSession().save(entity);
+
 	}
 
 	@Override
@@ -43,12 +50,22 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public void update(User entity) {
-		this.getSession().update(entity);
+		Transaction trans = this.getSession().beginTransaction();
+		try {
+			User origEntity = this.getSession().load(User.class, entity.getId());
+			origEntity.setUserName(entity.getUserName());
+			origEntity.setPassword(entity.getPassword());
+			this.getSession().update(origEntity);
+			trans.commit();
+		} catch (Exception e) {
+			trans.rollback();
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void delete(Integer id) throws Exception {
-		this.getSession().delete(this.get(id));
+		this.session.delete(this.get(id));
 	}
 
 }
