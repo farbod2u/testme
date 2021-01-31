@@ -39,8 +39,14 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public void save(User entity) {
-		this.getSession().save(entity);
-
+		Transaction trans = this.getSession().beginTransaction();
+		try {
+			this.getSession().save(entity);
+			trans.commit();
+		} catch (Exception e) {
+			trans.rollback();
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -65,7 +71,17 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public void delete(Integer id) throws Exception {
-		this.session.delete(this.get(id));
+		Transaction trans = this.getSession().beginTransaction();
+
+		try {
+			User origEntity = this.getSession().load(User.class, id);
+			this.getSession().delete(origEntity);
+			trans.commit();
+
+		} catch (Exception e) {
+			trans.rollback();
+			e.printStackTrace();
+		}
 	}
 
 }

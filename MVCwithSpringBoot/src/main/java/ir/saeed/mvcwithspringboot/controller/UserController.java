@@ -40,8 +40,7 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "redirect:/";
-		}
-		
+		}	
 	}
 	
 	@PostMapping("/user/save")
@@ -52,4 +51,17 @@ public class UserController {
 			service.update(entity);
 		return "redirect:/";
 	}
+	
+	@GetMapping("/user/delete/{id}")
+	public String delete(@PathVariable Integer id, Model model)
+	{
+		try {
+			service.delete(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "redirect:/";
+	}
+	
 }
