@@ -19,7 +19,7 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
-	@GetMapping("/")
+	@GetMapping("/user/list")
 	public String listAll(Model model) {
 		List<User> list = service.getAll();
 		model.addAttribute("data", list);
