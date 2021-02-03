@@ -7,9 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"ir.saeed.multi.service.api"})
-@EntityScan("ir.saeed.multi.model")
-@EnableJpaRepositories("ir.saeed.multi.repository")
+//@ComponentScan({ "ir.saeed.multi.service.api" })
+@ComponentScan(basePackages = { "ir.saeed.multi.*" })
+@EntityScan(basePackages = { "ir.saeed.multi.*" })
+@EnableJpaRepositories(basePackages = { "ir.saeed.multi.*" })
 public class Application {
 
 	public static void main(String[] args) {

@@ -3,27 +3,26 @@ package ir.saeed.multi.application.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import ir.saeed.multi.model.User;
 import ir.saeed.multi.service.api.UserService;
 
-@Controller
+@RestController
 public class UserController {
 
 	@Autowired
 	private UserService service;
 
-	@GetMapping("/")
-	public String listAll(Model model) {
-		List<User> list = service.getAll();
-		model.addAttribute("data", list);
-		return "listAll";
+	@RequestMapping("/")
+	public List<User> listAll() {
+		return service.getAll();
 	}
 
 	@GetMapping("/user/add")

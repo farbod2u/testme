@@ -1,28 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>ir.saeed</groupId>
+		<groupId>ir.saeed.multi</groupId>
 		<artifactId>multi-module</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>ir.saeed.multi.repository</groupId>
 	<artifactId>repository</artifactId>
 	<packaging>jar</packaging>
 	<name>repository</name>
 
 	<dependencies>
-		<!-- Project modules -->
 		<dependency>
-			<groupId>ir.saeed.multi.model</groupId>
+			<groupId>ir.saeed.multi</groupId>
 			<artifactId>model</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-		<!-- Spring Boot dependencies -->
-		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<scope>runtime</scope>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

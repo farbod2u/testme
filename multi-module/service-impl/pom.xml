@@ -1,28 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>ir.saeed</groupId>
-    <artifactId>multi-module</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <groupId>ir.saeed.multi.service.impl</groupId>
-  <artifactId>service-impl</artifactId>
-  <name>service-impl</name>
-  <packaging>jar</packaging>
-  
-  <dependencies>
-  
-  	<dependency>
-  		<groupId>ir.saeed.multi.service.api</groupId>
-  		<artifactId>service-api</artifactId>
-  		<version>${project.version}</version>
-  	</dependency>
-  	
-  	<dependency>
-  		<groupId>ir.saeed.multi.repository</groupId>
-  		<artifactId>repository</artifactId>
-  		<version>${project.version}</version>
-  	</dependency>
-  	
-  </dependencies>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ir.saeed.multi</groupId>
+		<artifactId>multi-module</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>service-impl</artifactId>
+	<name>service-impl</name>
+	<packaging>jar</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>ir.saeed.multi</groupId>
+			<artifactId>service-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>ir.saeed.multi</groupId>
+			<artifactId>repository</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>
