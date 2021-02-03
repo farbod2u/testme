@@ -12,6 +12,7 @@
 		<module>repository-module</module>
 		<module>service-module</module>
 		<module>controller-module</module>
+		<module>mvc-module</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -36,6 +37,10 @@
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 	</dependencies>
 </project>
