@@ -7,7 +7,7 @@ import ir.saeed.multi.model.Employee;
 public interface EmployeeService {
 	List<Employee> getAll();
 
-	void save(Employee entity);
+	void save(Employee entity) throws Exception;
 
-	void batchInser();
+	void batchInsert();
 }

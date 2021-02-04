@@ -13,10 +13,10 @@ public class EmployeeConfiguration {
 	@Bean
 	CommandLineRunner commandLineRunner(EmployeeService service) {
 		return args ->{
-			Employee entity = new Employee();
+			/*Employee entity = new Employee();
 			entity.setMessage("wwww");
 			entity.setName("wrty");
-			service.save(entity);
+			service.save(entity);*/
 		};
 	}
 }

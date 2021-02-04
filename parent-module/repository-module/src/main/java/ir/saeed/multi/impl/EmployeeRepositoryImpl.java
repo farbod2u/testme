@@ -1,22 +1,13 @@
 package ir.saeed.multi.impl;
 
-import java.util.List;
-import javax.persistence.EntityManagerFactory;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
-import ir.saeed.multi.EmployeeRepository;
-import ir.saeed.multi.model.Employee;
 
 @Repository
 @Primary
-public class EmployeeRepositoryImpl implements EmployeeRepository {
+public class EmployeeRepositoryImpl /*implements EmployeeRepository*/ {
 
-	@Autowired
+	/*@Autowired
 	private EntityManagerFactory emFactory;
 
 	private Session session;
@@ -47,6 +38,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 			trans.rollback();
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 }

@@ -2,6 +2,7 @@ package ir.saeed.multi.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<Employee> getAll() {
-		return repository.getAll();
+		return repository.findAll();
 	}
 
 	@Override
-	public void batchInser() {
+	public void batchInsert() {
 		List<Employee> res = new ArrayList<Employee>();
 		res.add(new Employee(1, "saeed", "salam saeed"));
 		res.add(new Employee(2, "ali", "salam ali"));
@@ -31,7 +32,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void save(Employee entity) {
+	public void save(Employee entity) throws Exception {
+		Optional<Employee> res = repository.findEmployeeByName(entity.getName());
+		if (res.isPresent())
+			throw new Exception("Name already exits!");
 		repository.save(entity);
 	}
 
