@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import ir.saeed.mvcwithspringboot.entities.User;
 import ir.saeed.mvcwithspringboot.service.UserService;
@@ -19,6 +20,12 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
+	@GetMapping("/")
+	public String index()
+	{
+		return "redirect:/user/list";
+	}
+	
 	@GetMapping("/user/list")
 	public String listAll(Model model) {
 		List<User> list = service.getAll();
@@ -39,7 +46,7 @@ public class UserController {
 			return "user/add_edit";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "redirect:/";
+			return "redirect:/user/list";
 		}	
 	}
 	
@@ -49,7 +56,7 @@ public class UserController {
 			service.save(entity);
 		else
 			service.update(entity);
-		return "redirect:/";
+		return "redirect:/user/list";
 	}
 	
 	@GetMapping("/user/delete/{id}")
@@ -61,7 +68,7 @@ public class UserController {
 			e.printStackTrace();
 		}
 		
-		return "redirect:/";
+		return "redirect:/user/list";
 	}
 	
 }
