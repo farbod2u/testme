@@ -11,6 +11,11 @@ public class EmployeeMvc {
 	@Autowired
 	EmployeeService service;
 	
+	@GetMapping
+	public String index() {
+		return "redirect:/getall";
+	}
+	
 	@GetMapping("/getall")
 	public String getAll(Model model)
 	{

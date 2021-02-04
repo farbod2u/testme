@@ -17,7 +17,7 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
 server:
-  port: 8585
+  port: 8181
   error:
     whitelabel:
       enabled: false
