@@ -27,7 +27,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		res.add(new Employee(1, "saeed", "salam saeed"));
 		res.add(new Employee(2, "ali", "salam ali"));
 		res.add(new Employee(3, "vahid", "salam vahid"));
-		//repository.saveAll(res);
+		// repository.saveAll(res);
+	}
+
+	@Override
+	public void save(Employee entity) {
+		repository.save(entity);
 	}
 
 }

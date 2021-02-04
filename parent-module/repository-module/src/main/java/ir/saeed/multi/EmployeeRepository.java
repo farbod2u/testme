@@ -6,4 +6,6 @@ import ir.saeed.multi.model.Employee;
 
 public interface EmployeeRepository {
 	List<Employee> getAll();
+
+	void save(Employee entity);
 }

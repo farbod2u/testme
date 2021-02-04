@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,7 @@ import ir.saeed.multi.model.Employee;
 
 @Repository
 @Primary
-public class EmployeeRepositoryImpl implements EmployeeRepository  {
+public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 	@Autowired
 	private EntityManagerFactory emFactory;
@@ -29,11 +30,23 @@ public class EmployeeRepositoryImpl implements EmployeeRepository  {
 
 		return session;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> getAll() {
 		return getSession().createQuery("from Employee").list();
+	}
+
+	@Override
+	public void save(Employee entity) {
+		Transaction trans = this.getSession().beginTransaction();
+		try {
+			this.getSession().save(entity);
+			trans.commit();
+		} catch (Exception e) {
+			trans.rollback();
+			e.printStackTrace();
+		}
 	}
 
 }
