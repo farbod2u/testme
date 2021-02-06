@@ -22,15 +22,10 @@ public class EmployeeController {
 	EmployeeService service;
 
 	@GetMapping("{id}")
-	public Employee get(@PathVariable Integer id)  {
-		try {
-			return service.get(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new ApiRequestException(e.getMessage());
-		}		
+	public Employee get(@PathVariable Integer id) throws Exception {
+		return service.get(id);
 	}
-	
+
 	@GetMapping
 	public List<Employee> getAll() {
 		return service.getAll();
@@ -45,7 +40,7 @@ public class EmployeeController {
 //	public void update(@PathVariable Integer id, @RequestParam(required = false) String name, @RequestParam(required = false) String message) throws Exception {
 //		service.update(new Employee(id, name, message));
 //	}
-	
+
 	@PutMapping("{id}")
 	public void update(@PathVariable Integer id, @RequestBody Employee entity) throws Exception {
 		entity.setId(id);
@@ -54,7 +49,7 @@ public class EmployeeController {
 
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable Integer id) throws Exception {
-		 service.delete(id);
+		service.delete(id);
 	}
 
 }

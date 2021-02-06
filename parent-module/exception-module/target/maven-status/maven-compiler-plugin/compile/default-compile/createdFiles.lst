@@ -1,3 +1,4 @@
-ir/saeed/multi/ApiException.class
-ir/saeed/multi/ApiRequestException.class
-ir/saeed/multi/ApiExceptionHandler.class
+ir/saeed/multi/exception/EntityNotFoundException.class
+ir/saeed/multi/exception/ApiException.class
+ir/saeed/multi/exception/ApiRequestException.class
+ir/saeed/multi/exception/ApiExceptionHandler.class

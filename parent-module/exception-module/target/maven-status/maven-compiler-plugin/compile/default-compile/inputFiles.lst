@@ -1,3 +1,4 @@
-/home/saeed/git/testme/parent-module/exception-module/src/main/java/ir/saeed/multi/ApiException.java
-/home/saeed/git/testme/parent-module/exception-module/src/main/java/ir/saeed/multi/ApiRequestException.java
-/home/saeed/git/testme/parent-module/exception-module/src/main/java/ir/saeed/multi/ApiExceptionHandler.java
+/home/saeed/git/testme/parent-module/exception-module/src/main/java/ir/saeed/multi/exception/ApiException.java
+/home/saeed/git/testme/parent-module/exception-module/src/main/java/ir/saeed/multi/exception/ApiRequestException.java
+/home/saeed/git/testme/parent-module/exception-module/src/main/java/ir/saeed/multi/exception/EntityNotFoundException.java
+/home/saeed/git/testme/parent-module/exception-module/src/main/java/ir/saeed/multi/exception/ApiExceptionHandler.java

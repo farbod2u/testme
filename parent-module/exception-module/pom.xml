@@ -5,5 +5,6 @@
     <artifactId>parent-module</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+  <groupId>ir.saeed.multi.exception</groupId>
   <artifactId>exception-module</artifactId>
 </project>

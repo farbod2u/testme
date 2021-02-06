@@ -1,4 +1,4 @@
-package ir.saeed.multi;
+package ir.saeed.multi.exception;
 
 public class ApiRequestException extends RuntimeException {
 

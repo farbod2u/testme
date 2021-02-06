@@ -17,5 +17,10 @@
   		<artifactId>repository-module</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+  		<groupId>ir.saeed.multi.exception</groupId>
+  		<artifactId>exception-module</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
 </project>
