@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import ir.saeed.multi.EmployeeService;
-import ir.saeed.multi.model.Employee;
 
 @Configuration
 public class EmployeeConfiguration {

@@ -8,10 +8,10 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan("ir.saeed.multi")
 @EntityScan("ir.saeed.multi.model")
-public class MultiModuleRun {
+public class RestControllerRun {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MultiModuleRun.class, args);
+		SpringApplication.run(RestControllerRun.class, args);
 	}
 
 }
