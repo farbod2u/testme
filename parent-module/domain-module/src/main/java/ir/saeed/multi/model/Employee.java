@@ -1,6 +1,7 @@
 package ir.saeed.multi.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "t_Employee")
@@ -11,7 +12,8 @@ public class Employee {
 	@Column(name = "f_Id")
 	private Integer id;
 
-	@Column(name = "f_Name")
+	@Column(name = "f_Name", nullable = false)
+	@Size(min = 5 , message = "Name must be greater than or qeual 5 character.")
 	private String name;
 
 	@Column(name = "f_Message")

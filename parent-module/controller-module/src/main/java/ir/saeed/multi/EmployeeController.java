@@ -2,6 +2,8 @@ package ir.saeed.multi;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +34,7 @@ public class EmployeeController {
 	}
 
 	@PostMapping
-	public void save(@RequestBody Employee entity) throws Exception {
+	public void save(@Valid @RequestBody Employee entity) throws Exception {
 		service.save(entity);
 	}
 
@@ -42,7 +44,7 @@ public class EmployeeController {
 //	}
 
 	@PutMapping("{id}")
-	public void update(@PathVariable Integer id, @RequestBody Employee entity) throws Exception {
+	public void update(@PathVariable Integer id, @Valid @RequestBody Employee entity) throws Exception {
 		entity.setId(id);
 		service.update(entity);
 	}
