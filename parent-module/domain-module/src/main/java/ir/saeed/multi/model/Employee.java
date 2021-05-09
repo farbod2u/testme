@@ -3,8 +3,11 @@ package ir.saeed.multi.model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 @Entity
 @Table(name = "t_Employee")
+@JsonFilter("SaeedBeanFilter")
 public class Employee {
 
 	@Id
@@ -17,6 +20,7 @@ public class Employee {
 	private String name;
 
 	@Column(name = "f_Message")
+	//@JsonIgnore
 	private String message;
 
 	public Employee(int id, String name, String message) {
